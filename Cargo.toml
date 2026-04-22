@@ -1,0 +1,13 @@
+[package]
+name = "try-rs-tictactoe"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = [
+    "cdylib", # (C-compatible Dynamic Library): This is the most important part for the web. WebAssembly (WASM) requires this format so that JavaScript can load Rust code as a module.
+    "rlib" # (Rust Library): This is for Rust-to-Rust use. It allows `main.rs` to still talk to `lib.rs` while testing locally.
+]
+
+[dependencies]
+wasm-bindgen = "0.2.118"
